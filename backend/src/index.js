@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import dbConnect from "./config/dbConnect.js";
+import authRoute from "./routes/authRoutes.js";
 
 dotenv.config();
-
+dbConnect();
 const app = express();
 
 // middleware
@@ -10,11 +12,12 @@ const app = express();
 app.use(express.json());
 
 // Routes
+app.use("/api/auth", authRoute);
 
-// start the server
 
 const PORT = process.env.PORT || 7000;
-
 app.listen(PORT, () => {
   console.log(`Server is runing at port ${PORT}`);
 });
+
+
