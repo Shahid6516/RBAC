@@ -12,7 +12,6 @@ export const verifyToken = (req, res, next) => {
         message: "No token, authrization is denied",
       });
     }
-
     try {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
       req.user = decode;
