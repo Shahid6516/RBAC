@@ -9,6 +9,7 @@ export const verifyToken = (req, res, next) => {
 
     if (!token) {
       return res.status(401).json({
+        
         message: "No token, authrization is denied",
       });
     }
